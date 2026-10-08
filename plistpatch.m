@@ -92,7 +92,7 @@ void xpc_save_to_file(xpc_object_t object, const char* path)
     NSMutableDictionary* dict = (NSMutableDictionary*)nsobj;
     if(![dict writeToFile:@(jbroot(path)) atomically:YES]) {
 		fprintf(stderr, "failed to patch plist: %s\n", path);
-		abort();
+		exit(EXIT_FAILURE);
 	}
 }
 
