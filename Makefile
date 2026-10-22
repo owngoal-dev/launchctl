@@ -7,7 +7,8 @@ SRC += remove.c runstats.c start_stop.c userswitch.c version.c xpc_helper.c
 SRC += dumpjpcategory.c procinfo.c resolveport.c rem.c
 SRC += plistpatch.m
 
-CFLAGS += -fobjc-arc -Werror 
+override CFLAGS += -fobjc-arc -Werror 
+override LDFLAGS += -Wl,-U,_launch_active_user_switch
 
 ifeq ($(DEBUG),1)
 CFLAGS  += -O0 -g -fsanitize=address,undefined -fno-omit-frame-pointer
